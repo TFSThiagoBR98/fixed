@@ -95,7 +95,7 @@ class Fixed implements Comparable<Fixed> {
     _checkScale(scale);
     minorUnits = _rescale(
       (amount * Decimal.ten.pow(amount.scale)).toBigInt(),
-      existingScale: amount.hasFinitePrecision ? amount.scale : 16,
+      existingScale: amount.toRational().hasFinitePrecision ? amount.scale : 16,
       targetScale: scale,
     );
   }
